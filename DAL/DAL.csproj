@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DP\DP.csproj" />
+    <ProjectReference Include="..\Usefuls\Usefuls.csproj" />
   </ItemGroup>
 
 </Project>

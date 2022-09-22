@@ -27,8 +27,10 @@ namespace DAL
             var request = new RestRequest(new Uri(Url), Method.Get);
 
             RestResponse response = client.Execute(request);
+            
 
             return response.Content;
+            
 
         }
     }

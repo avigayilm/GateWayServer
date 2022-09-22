@@ -18,6 +18,7 @@ namespace BL
             string month;
             Root myHoliday = null;
             DAL.HebCalAdapter dal = new DAL.HebCalAdapter();
+            
             string myJson = dal.GetCommingHoliday(currentDate);
             if (myJson != null)
             {
