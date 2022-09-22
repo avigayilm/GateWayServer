@@ -1,5 +1,6 @@
 ﻿using GateWayServer.Models;
 using Microsoft.AspNetCore.Mvc;
+using static System.Net.WebRequestMethods;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,9 +14,9 @@ namespace GateWayServer.Controllers
         [HttpGet]
         public string Get()
         {
-            BL.HebCalLogic bl= new BL.HebCalLogic();
+            BL.HebCalLogic bl = new BL.HebCalLogic();
             DateTime CurrentDate = DateTime.Now;
-            string result= bl.isHoliday(CurrentDate);
+            string result = bl.isHoliday(CurrentDate);
             return result;
             //return new string[] { "value1", "value2" };
         }
