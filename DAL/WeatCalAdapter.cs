@@ -5,9 +5,17 @@ using System.Text;
 
 namespace DAL
 {
+    /// <summary>
+    /// the weather DL class for dealing with weather server
+    ///
+    /// </summary>
     public class WeatCalAdapter
     {
-
+        /// <summary>
+        /// here we connect to the remote openweather server and retrieve the weather of given city
+        /// </summary>
+        /// <param name="City"></param>
+        /// <returns> returns all the weather data in celsius @returns all the weather data in celsius</returns>
         public string GetWeather(string City = "Jerusalem")
         {
 

@@ -9,11 +9,14 @@ namespace GateWayServer.Controllers
     public class WeatherController : ControllerBase
     {
         // GET: api/<WeatherController>
+        /// <summary>
+        /// recieves from businuss layer what the weather is
+        /// </summary>
+        /// <returns>what the weather category is</returns>
         [HttpGet]
         public string Get()
         {
             BL.WeatCalLogic bl = new();
-            DateTime CurrentDate = DateTime.Now;
             string result = bl.WhatWeather();
             return result;
         }
