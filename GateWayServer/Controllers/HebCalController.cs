@@ -1,4 +1,5 @@
-﻿using GateWayServer.Models;
+﻿using DP;
+using GateWayServer.Models;
 using Microsoft.AspNetCore.Mvc;
 using static System.Net.WebRequestMethods;
 
@@ -8,15 +9,21 @@ namespace GateWayServer.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class HebCalController : ControllerBase
     {
         // GET: api/<ValuesController>
+
+        // we want to get the parameters from the url, becuase we are getting
+        // a url request from the user.
         [HttpGet]
-        public string Get()
+        public string Get([FromQuery]HebCalParamsDTO data)
         {
-            BL.HebCalLogic bl = new BL.HebCalLogic();
+            // here we get the parameters of the URL
+           // HebCalParamsDTO result=new HebCalParamsDTO { CurrentDate = data.CurrentDate }// these are values that will overwrite
+           //data is the parameter that you get from the MVS( it's a URL, and that you will send to BL)
+            BL.HebCalLogic bl= new BL.HebCalLogic();
             DateTime CurrentDate = DateTime.Now;
-            string result = bl.isHoliday(CurrentDate);
+            string result= bl.isHoliday(CurrentDate);
             return result;
             //return new string[] { "value1", "value2" };
         }

@@ -4,6 +4,7 @@ using System.Text;
 
 namespace DP
 {
+    [Serializable]
     public class HebCalParamsDTO
     {
         public string Name{ get; set; }
