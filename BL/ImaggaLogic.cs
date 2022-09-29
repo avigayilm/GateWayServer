@@ -27,11 +27,13 @@ namespace BL
             {
                 myImage = JsonConvert.DeserializeObject<Root> (myJson);
             }
+            if (myImage.result == null) //bad lines!!!!!!!!!!!!!!!!!!!!! get rid of!!!!! בדיקה של קישור חובה
+                return false;
             foreach (var item in myImage.result.tags)
             {
                 if (item.confidence > 80)
                 {
-                    if (item.tag.en == data.Name)
+                    if (item.tag.en == data.Title)
                         return true;
                 }
                 else
