@@ -10,14 +10,10 @@ namespace GateWayServer.Controllers
     {
         // GET: api/<ImaggaController>
         [HttpGet]
+        [HttpGet("{Title}/{ImageUrl}")]
         public bool Get([FromQuery]ImaggaParamsDTO data)
         {
             BL.ImaggaLogic bl = new BL.ImaggaLogic();
-
-            //for try!
-            //string ImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKXuC1duqsa_7A2SC9HZn1szASPgvIJCdczQ&usqp=CAU";
-           // string Name = "banana";
-
             bool result = bl.FittingImage(data);
             return result;
         }
