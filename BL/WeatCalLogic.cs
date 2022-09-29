@@ -16,12 +16,12 @@ namespace BL
     ///gets from the dal the weather and retrieves only the 'feels like' tag
     /// </summary>
     /// <returns>only what the weather 'feels like' in celsius</returns>
-        public string WhatWeather()
+        public string WhatWeather(string city = "Jerusalem")
         {
           
             Root myWeather = null;
             DAL.WeatCalAdapter dal = new DAL.WeatCalAdapter(); // here is the call to the Data layer
-            string myJson = dal.GetWeather();
+            string myJson = dal.GetWeather(city);
             if (myJson != null)
             {
                 myWeather = JsonConvert.DeserializeObject<Root>(myJson); // retrieve the data from the json

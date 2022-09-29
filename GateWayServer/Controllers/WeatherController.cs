@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DP;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,16 +14,29 @@ namespace GateWayServer.Controllers
         /// recieves from businuss layer what the weather is
         /// </summary>
         /// <returns>what the weather category is</returns>
+        //[HttpGet]
+        //public string Get()
+        //{
+        //    BL.WeatCalLogic bl = new();
+        //    double jerusalemLat = 31.771959;
+        //    double jerusalemLon = 35.217018;
+        //    string result = bl.WhatWeather(jerusalemLon, jerusalemLat);
+        //    return result;
+        //}
         [HttpGet]
-        public string Get()
+        public string Get([FromQuery]WeatherParamsDTO  data)
         {
+            // here we get the parameters of the URL
+            // HebCalParamsDTO result=new HebCalParamsDTO { CurrentDate = data.CurrentDate }// these are values that will overwrite
+            //data is the parameter that you get from the MVS( it's a URL, and that you will send to BL)
             BL.WeatCalLogic bl = new();
-            string result = bl.WhatWeather();
+            string result = bl.WhatWeather(data.City);
             return result;
+            //return new string[] { "value1", "value2" };
         }
 
         // GET api/<WeatherController>/5
-        [HttpGet("{id}")]
+        // [HttpGet("{long}")]
         public string Get(int id)
         {
             BL.HebCalLogic bl = new BL.HebCalLogic();
