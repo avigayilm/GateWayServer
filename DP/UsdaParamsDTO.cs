@@ -9,6 +9,7 @@ namespace DP
         public string Name { get; set; }
         public string UnitName { get; set; }
         public double Value { get; set; }
+        public int? DailyPercent { get; set; } = 0;
     }
     public class UsdaParamsDTO
     {

@@ -24,27 +24,27 @@ namespace GateWayServer.Controllers
         //    return result;
         //}
         [HttpGet]
-        public string Get([FromQuery]WeatherParamsDTO  data)
+        public WeatherClass Get([FromQuery]WeatherParamsDTO  data)
         {
             // here we get the parameters of the URL
             // HebCalParamsDTO result=new HebCalParamsDTO { CurrentDate = data.CurrentDate }// these are values that will overwrite
             //data is the parameter that you get from the MVS( it's a URL, and that you will send to BL)
             BL.WeatCalLogic bl = new();
-            string result = bl.WhatWeather(data.City);
+            WeatherClass result = bl.WhatWeather(data.City);
             return result;
             //return new string[] { "value1", "value2" };
         }
 
         // GET api/<WeatherController>/5
         // [HttpGet("{long}")]
-        public string Get(int id)
-        {
-            BL.HebCalLogic bl = new BL.HebCalLogic();
-            DateTime CurrentDate = DateTime.Now;
-            string result = bl.isHoliday(CurrentDate);
-            return result;
-            //return new string[] { "value1", "value2" };
-        }
+        //public string Get(int id)
+        //{
+        //    BL.HebCalLogic bl = new BL.HebCalLogic();
+        //    DateTime CurrentDate = DateTime.Now;
+        //    string result = bl.isHoliday(CurrentDate);
+        //    return result;
+        //    //return new string[] { "value1", "value2" };
+        //}
 
         // POST api/<WeatherController>
         [HttpPost]

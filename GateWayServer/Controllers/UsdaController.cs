@@ -11,13 +11,13 @@ namespace GateWayServer.Controllers
     {
         // GET: api/<USDAController>
         [HttpGet]
-        public Nutrient[] Get([FromQuery] string ingredients,string keyWord)// if no keyword than - is passed 
+        public Nutrient[] Get([FromQuery] string ingredients)/*,string keyWord)*/// if no keyword than - is passed 
         {
             // here we get the parameters of the URL
             // HebCalParamsDTO result=new HebCalParamsDTO { CurrentDate = data.CurrentDate }// these are values that will overwrite
             //data is the parameter that you get from the MVS( it's a URL, and that you will send to BL)
             BL.UsdaLogic bl = new BL.UsdaLogic();
-            DP.Nutrient[]nutrients = bl.NutrientsInfo(ingredients,keyWord);
+            DP.Nutrient[]nutrients = bl.NutrientsInfo(ingredients/*,keyWord*/);
             return nutrients;
             //return new string[] { "value1", "value2" 
         }

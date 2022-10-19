@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using DP;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,7 +17,7 @@ namespace BL
     ///gets from the dal the weather and retrieves only the 'feels like' tag
     /// </summary>
     /// <returns>only what the weather 'feels like' in celsius</returns>
-        public string WhatWeather(string city = "Jerusalem")
+        public WeatherClass WhatWeather(string city = "Jerusalem")
         {
           
             Root myWeather = null;
@@ -27,24 +28,24 @@ namespace BL
                 myWeather = JsonConvert.DeserializeObject<Root>(myJson); // retrieve the data from the json
             }
            
-            double weather = myWeather.main.feels_like;
-            string result;
+            double weatherDegree = myWeather.main.feels_like;
+            DP.Weather result;
             // according the weather determine the category of weather
-            if(weather <= 15)
+            if(weatherDegree <= 15)
             {
-                result = $"Cold {weather}";
+                result = DP.Weather.Cold;
             } 
-            else if(weather <= 27)
+            else if(weatherDegree <= 27)
             {
-                result = $"Nice {weather}";
+                result = DP.Weather.Regular;
             }
             else 
             {
-                result = $"Hot {weather}";
-            } 
-            
+                result = DP.Weather.Hot;
+            }
 
-            return $"{weather}";
+            WeatherClass weatherRes = new WeatherClass() { Temp = weatherDegree, WeatherFeel = result };
+            return weatherRes;
         }
     }
 }

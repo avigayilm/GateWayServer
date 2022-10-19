@@ -11,4 +11,11 @@ namespace DP
         //public double Lat { get; set; }
         public string City { get; set; }
     }
+
+    public class WeatherClass
+    {
+        public double Temp { get; set; }
+        public Weather  WeatherFeel { get; set; }
+    }
+    public enum Weather { None, Hot, Regular, Cold }
 }
