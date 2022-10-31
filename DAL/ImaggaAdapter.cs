@@ -13,9 +13,9 @@ namespace DAL
         /// <summary>
         /// get the image information
         /// </summary>
-        /// <param name="ImageUrl">the image url</param>
+        /// <param name="RImage">the image info</param>
         /// <returns></returns>
-        public string GetImageInformation(string ImageUrl)
+        public string GetImageInformation(string RImage)
         {
             string apiKey = "acc_4858251230dcb88";
             string apiSecret = "c2f19534f3e9c73697368ef9cfe0cae1";
@@ -25,13 +25,21 @@ namespace DAL
             var client = new RestClient("https://api.imagga.com/v2/tags");
 
             var request = new RestRequest(new Uri("https://api.imagga.com/v2/tags"), Method.Get);
-            request.AddParameter("image_url", ImageUrl);
+
+            if(RImage.StartsWith("Http"))
+            {
+                request.AddParameter("image_url", RImage);
+            }
+            else
+            {
+                request.AddParameter("image_upload_id", RImage);
+            }
+
             request.AddHeader("Authorization", String.Format("Basic {0}", basicAuthValue));
 
             RestResponse response = client.Execute(request);
 
             return response.Content;
-
         }
     }
 }
