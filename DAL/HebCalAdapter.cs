@@ -22,6 +22,7 @@ namespace DAL
 
             string Url = $"https://www.hebcal.com/converter?cfg=json&date={startDate}&g2h=1&strict=1";
 
+
             var client = new RestClient(Url);
 
             var request = new RestRequest(new Uri(Url), Method.Get);

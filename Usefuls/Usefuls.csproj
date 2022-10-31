@@ -31,7 +31,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BigML, Version=2.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\GateWayServer\packages\BigML.2.5.1\lib\net472\BigML.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Device" />
     <Reference Include="System.Xml.Linq" />
@@ -44,6 +48,9 @@
   <ItemGroup>
     <Compile Include="Location.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
