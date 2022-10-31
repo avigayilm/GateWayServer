@@ -22,7 +22,7 @@ namespace BL
         {
             Root myImage = null;
             DAL.ImaggaAdapter dal = new DAL.ImaggaAdapter();
-            string myJson = dal.GetImageInformation(data.ImageUrl);
+            string myJson = dal.GetImageInformation(data.RImage);
             if (myJson != null)
             {
                 myImage = JsonConvert.DeserializeObject<Root> (myJson);
