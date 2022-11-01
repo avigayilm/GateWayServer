@@ -15,7 +15,7 @@ namespace BL
         /// <summary>
         /// This class make sure that its an appropriate picture 
         /// </summary>
-        /// <param name="ImageUrl">the url of the image</param>
+        /// <param name="RImage">the info of the image</param>
         /// <param name="Name">the name of the category by which we check the image</param>
         /// <returns></returns>
         public bool FittingImage(ImaggaParamsDTO data)
@@ -31,9 +31,9 @@ namespace BL
                 return false;
             foreach (var item in myImage.result.tags)
             {
-                if (item.confidence > 80)
+                if (item.confidence >= 30)//i would love it to be more but imagga ddoesnt works so gr8:)..
                 {
-                    if (item.tag.en == data.Title)
+                    if (item.tag.en == "food")
                         return true;
                 }
                 else
